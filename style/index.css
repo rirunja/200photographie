@@ -1,0 +1,103 @@
+html,
+body {
+    height: 100%;
+}
+
+#page-main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#page-main > section {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+#map {
+    flex: 1;
+    min-height: 0;
+}
+
+#map-box {
+    width: 0;
+}
+
+#map-box > .card {
+    height: 100%;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#map-box.show {
+    width: 35%;
+    min-width: 280px;
+}
+
+#map-box.collapsing {
+    width: 0;
+}
+
+/* ---- Icons */
+
+.leaflet-div-icon:has(.ph) {
+    background-color: transparent;
+    border: none;
+}
+
+.ph, .ph.sm {
+    font-size: 16px;
+}
+
+.ph.nm {
+    font-size: 20px;
+}
+
+.ph.lg {
+    font-size: 24px;
+}
+
+.ph.xl {
+    font-size: 32px;
+}
+
+/* ---- Bulles */
+
+#message-bulle {
+    position: fixed;
+    bottom: 100px;
+    right: 40px;
+
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+
+    z-index: 1000;
+}
+
+#message-bulle.cachee {
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+}
+
+#bouton-bulle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+
+    font-size: 20px;
+}

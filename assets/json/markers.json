@@ -1,0 +1,18 @@
+{
+    "markers": [
+        {
+            "name": "Cathédrale Sainte-Cécile d'Albi",
+            "coordinates" : [43.92841, 2.14255],
+            "icon": "church",
+            "size": "nm",
+            "folder": "cathedrale"
+        },
+        {
+            "name" : "INU Champollion",
+            "coordinates" : [43.918654, 2.137635],
+            "icon": "graduation-cap",
+            "size": "nm",
+            "folder": "caserne laperouse"
+        }
+    ]
+}
