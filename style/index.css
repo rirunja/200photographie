@@ -2,17 +2,38 @@
     height: 720px;
 }
 
-@font-face {
-    font-family : Montserrat;
-    src: url(font/Montserrat/Montserrat-Regular.ttf);
+#message-bulle {
+    position: fixed;
+    bottom: 100px;
+    right: 40px;
+
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-p {
-    font-family: Montserrat;
-    font-size: 40px;
-    color: #382A20;
+#message-bulle.cachee {
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
 }
 
-body {
-    background-color: #F7F3EA;
+#bouton-bulle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+
+    font-size: 20px;
 }
