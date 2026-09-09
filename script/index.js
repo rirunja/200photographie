@@ -27,6 +27,23 @@ document.addEventListener("DOMContentLoaded", (event) => {
         ]
     });
 
+    const bulle = document.getElementById("message-bulle");
+    const bouton = document.getElementById("bouton-bulle");
+
+    // Cliquer n'importe où sur la page
+    document.addEventListener("click", () => {
+        bulle.classList.add("cachee");
+    });
+
+    // Cliquer sur le bouton pour faire revenir la bulle
+    bouton.addEventListener("click", (event) => {
+        // Empêche le clic du bouton d'être considéré
+        // comme un clic sur la page
+        event.stopPropagation();
+
+        bulle.classList.remove("cachee");
+    });
+    
     /**
     // Prod 
     L.tileLayer(`https://tile.jawg.io/${STYLE}/{z}/{x}/{y}{r}.png?access-token=vrwFTDhEI2eLa0OfBBzHnJSNQeGrpQUyLm4zsl2OE5e9XSYHZiWs2ACEnHdV75L1`,
