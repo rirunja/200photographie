@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const BASE_URL = "http://127.0.0.1:5500/";
     const JSON_URL = BASE_URL + "assets/json/";
     const STYLE = "84ed21a1-a271-4015-a5a0-a35a3de58a24";
+    const PANNEL = document.querySelector("#map-box");
     const BOX = new bootstrap.Collapse('#map-box', { toggle: false });
 
     async function getAlbiJson() {
@@ -113,11 +114,21 @@ document.addEventListener("DOMContentLoaded", (event) => {
             }).addTo(map);
 
             pin.on('click', (e) => {
+                PANNEL.addEventListener("shown.bs.collapse", () => {
+                    const point = L.latLng(marker.coordinates);
+                    const pannel_width = PANNEL.offsetWidth;
+
+                    map.fitBounds(L.latLngBounds(point, point), {
+                        maxZoom: 18,
+                        paddingTopLeft: [0, 0],
+                        paddingBottomRight: [pannel_width, 0]
+                    });
+                }, { once: true });
+
                 BOX.toggle();
             });
         });
     })();
-
 
     // Jawg contributions :
     // map.attributionControl.addAttribution('<a href="https://www.jawg.io?utm_medium=map&utm_source=attribution" target="_blank">&copy; Jawg</a> - <a href="https://www.openstreetmap.org?utm_medium=map-attribution&utm_source=jawg" target="_blank">&copy; OpenStreetMap</a>&nbsp;contributors')
