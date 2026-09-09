@@ -19,6 +19,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
         return json.markers;
     }
 
+    async function getBuildingListJson() {
+        const response = await fetch(JSON_URL + 'buildingList.json');
+        const json = await response.json();
+
+        return json;
+    }
+
     var map = L.map('map', {
         center: [43.9298, 2.148],
         zoom: 14,
@@ -61,11 +68,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
+   
+
     // TODO : boucle sur les bordures
     
     (async () => {
         const json = await getAlbiJson();
-
         L.geoJSON(json, {
             style: {
                 "color": "#EB5E28",
