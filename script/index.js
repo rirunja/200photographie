@@ -69,9 +69,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
         maxZoom: 18,
     }).addTo(map);
 
-   
+    map.on('click', () => {
+        BOX.hide();
+    });
 
-    // TODO : boucle sur les bordures
     
     (async () => {
         const json = await getAlbiJson();
@@ -113,19 +114,29 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 icon: icon
             }).addTo(map);
 
-            pin.on('click', (e) => {
-                PANNEL.addEventListener("shown.bs.collapse", () => {
-                    const point = L.latLng(marker.coordinates);
-                    const pannel_width = PANNEL.offsetWidth;
+            var zoom = function (marker) {
+                const point = L.latLng(marker.coordinates);
+                const pannel_width = PANNEL.offsetWidth;
 
-                    map.fitBounds(L.latLngBounds(point, point), {
-                        maxZoom: 18,
-                        paddingTopLeft: [0, 0],
-                        paddingBottomRight: [pannel_width, 0]
-                    });
+                map.fitBounds(L.latLngBounds(point, point), {
+                    maxZoom: 18,
+                    paddingTopLeft: [0, 0],
+                    paddingBottomRight: [pannel_width, 0]
+                });
+            };
+
+            pin.on('click', (e) => {
+                L.DomEvent.stopPropagation(e);
+
+                PANNEL.addEventListener("shown.bs.collapse", () => {
+                    zoom(marker);
                 }, { once: true });
 
-                BOX.toggle();
+                if (PANNEL.classList.contains('show')) {
+                    zoom(marker);
+                }
+
+                BOX.show();
             });
         });
     })();
