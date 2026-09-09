@@ -27,11 +27,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
 
     var map = L.map('map', {
-        center: [43.9298, 2.148],
+        center: [43.92949, 2.14654],
         zoom: 14,
         maxBounds: [
-            [43.94383, 2.11113],
-            [43.91366, 2.17950]
+            [43.96718, 2.03719],
+            [43.89400, 2.25494]
         ]
     });
 
@@ -56,16 +56,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
     // Prod
     L.tileLayer(`https://tile.jawg.io/${STYLE}/{z}/{x}/{y}{r}.png?access-token=vrwFTDhEI2eLa0OfBBzHnJSNQeGrpQUyLm4zsl2OE5e9XSYHZiWs2ACEnHdV75L1`,
         {
-            maxZoom: 19,
-            attribution: '&copy; OpenStreetMap contributors &copy; Jawg'
+            minZoom: 14,
+            maxZoom: 18,
         }
     ).addTo(map);
     **/
 
     // Test
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        minZoom: 14,
+        maxZoom: 18,
     }).addTo(map);
 
    
