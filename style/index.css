@@ -1,5 +1,42 @@
+html,
+body {
+    height: 100%;
+}
+
+#page-main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#page-main > section {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+
 #map {
-    height: 720px;
+    flex: 1;
+    min-height: 0;
+}
+
+#map-box {
+    width: 0;
+}
+
+#map-box > .card {
+    height: 100%;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#map-box.show {
+    width: 35%;
+    min-width: 280px;
+}
+
+#map-box.collapsing {
+    width: 0;
 }
 
 /* ---- Icons */
@@ -40,6 +77,8 @@
     opacity: 1;
     transform: translateY(0);
     transition: opacity 0.3s ease, transform 0.3s ease;
+
+    z-index: 1000;
 }
 
 #message-bulle.cachee {

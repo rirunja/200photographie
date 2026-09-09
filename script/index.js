@@ -2,7 +2,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     const BASE_URL = "http://127.0.0.1:5500/";
     const JSON_URL = BASE_URL + "assets/json/";
-    const STYLE = "jawg-light";
+    const STYLE = "84ed21a1-a271-4015-a5a0-a35a3de58a24";
+    const BOX = new bootstrap.Collapse('#map-box', { toggle: false });
 
     async function getAlbiJson() {
         const response = await fetch(JSON_URL + 'albi.json');
@@ -44,8 +45,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
         bulle.classList.remove("cachee");
     });
     
-    /**
-    // Prod 
+    /** Jawg
+    // Prod
     L.tileLayer(`https://tile.jawg.io/${STYLE}/{z}/{x}/{y}{r}.png?access-token=vrwFTDhEI2eLa0OfBBzHnJSNQeGrpQUyLm4zsl2OE5e9XSYHZiWs2ACEnHdV75L1`,
         {
             maxZoom: 19,
@@ -99,13 +100,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 iconAnchor: [size/2, size/2]
             });
 
-            L.marker(marker.coordinates, {
+            const pin = L.marker(marker.coordinates, {
                 icon: icon
             }).addTo(map);
+
+            pin.on('click', (e) => {
+                BOX.toggle();
+            });
         });
     })();
 
 
     // Jawg contributions :
-    map.attributionControl.addAttribution('<a href="https://www.jawg.io?utm_medium=map&utm_source=attribution" target="_blank">&copy; Jawg</a> - <a href="https://www.openstreetmap.org?utm_medium=map-attribution&utm_source=jawg" target="_blank">&copy; OpenStreetMap</a>&nbsp;contributors')
+    // map.attributionControl.addAttribution('<a href="https://www.jawg.io?utm_medium=map&utm_source=attribution" target="_blank">&copy; Jawg</a> - <a href="https://www.openstreetmap.org?utm_medium=map-attribution&utm_source=jawg" target="_blank">&copy; OpenStreetMap</a>&nbsp;contributors')
 });
