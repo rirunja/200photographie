@@ -20,13 +20,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         return json.markers;
     }
 
-    async function getBuildingListJson() {
-        const response = await fetch(JSON_URL + 'buildingList.json');
-        const json = await response.json();
-
-        return json;
-    }
-
     var map = L.map('map', {
         center: [43.92949, 2.14654],
         zoom: 14,
@@ -137,6 +130,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 }
 
                 BOX.show();
+                document.getElementById("building-name").textContent = marker.name;
+                document.getElementById("building-image").src = "photo/" + marker.folder +"/caserne laperouse 1.jpg";
+
             });
         });
     })();
