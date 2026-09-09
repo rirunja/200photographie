@@ -1,3 +1,26 @@
 #map {
     height: 720px;
 }
+
+/* ---- Icons */
+
+.leaflet-div-icon:has(.ph) {
+    background-color: transparent;
+    border: none;
+}
+
+.ph, .ph.sm {
+    font-size: 16px;
+}
+
+.ph.nm {
+    font-size: 20px;
+}
+
+.ph.lg {
+    font-size: 24px;
+}
+
+.ph.xl {
+    font-size: 32px;
+}

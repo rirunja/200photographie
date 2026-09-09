@@ -11,6 +11,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
         return json;
     }
 
+    async function getMarkersJson() {
+        const response = await fetch(JSON_URL + 'markers.json');
+        const json = await response.json();
+
+        return json.markers;
+    }
+
     var map = L.map('map', {
         center: [43.9298, 2.148],
         zoom: 14,
@@ -38,12 +45,47 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     // TODO : boucle sur les bordures
     
-
     (async () => {
         const json = await getAlbiJson();
 
-        console.log(json);
-        L.geoJSON(json).addTo(map);
+        L.geoJSON(json, {
+            style: {
+                "color": "#EB5E28",
+                "weight": 5,
+                "opacity": 1,
+                "fillOpacity": 0,
+            }
+        }).addTo(map);
+    })();
+
+    (async () => {
+        const markers = await getMarkersJson();
+
+        markers.forEach(marker => {
+            var size = 16;
+
+            switch(marker.size) {
+                case "nm":
+                    size = 20;
+                    break;
+                case "lg":
+                    size = 24;
+                    break;
+                case "xl":
+                    size = 32;
+                    break;
+            };
+
+            var icon = L.divIcon({
+                html: `<div class="position-relative"><i class="ph ${marker.size} ph-${marker.icon}"></i><span class="position-absolute top-100 start-50 translate-middle-x text-center">${marker.name}</span></div>`,
+                iconSize: [size, size],
+                iconAnchor: [size/2, size/2]
+            });
+
+            L.marker(marker.coordinates, {
+                icon: icon
+            }).addTo(map);
+        });
     })();
 
 
