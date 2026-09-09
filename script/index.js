@@ -2,7 +2,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     const BASE_URL = "http://127.0.0.1:5500/";
     const JSON_URL = BASE_URL + "assets/json/";
-    const STYLE = "84ed21a1-a271-4015-a5a0-a35a3de58a24";
+    const STYLE = "jawg-streets";
+    const ACCESS_TOKEN = "mlsjk0GBdKSb6C78EKZ2fgZ0f8AJFxuxMLxRiNqbLEwEI0Dx0U5bg7xBDbRCig2W";
     const PANNEL = document.querySelector("#map-box");
     const BOX = new bootstrap.Collapse('#map-box', { toggle: false });
 
@@ -46,22 +47,21 @@ document.addEventListener("DOMContentLoaded", (event) => {
         bulle.classList.remove("cachee");
     });
     
-    /** Jawg
-    // Prod
-    L.tileLayer(`https://tile.jawg.io/${STYLE}/{z}/{x}/{y}{r}.png?access-token=vrwFTDhEI2eLa0OfBBzHnJSNQeGrpQUyLm4zsl2OE5e9XSYHZiWs2ACEnHdV75L1`,
+    L.tileLayer(`https://tile.jawg.io/${STYLE}/{z}/{x}/{y}{r}.png?access-token=${ACCESS_TOKEN}`,
         {
             minZoom: 14,
             maxZoom: 18,
         }
     ).addTo(map);
-    **/
 
     // Test
+    /**
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         minZoom: 14,
         maxZoom: 18,
     }).addTo(map);
-
+    */
+   
     map.on('click', () => {
         BOX.hide();
     });
