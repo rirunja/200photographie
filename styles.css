@@ -1,0 +1,14 @@
+@font-face {
+    font-family : Montserrat;
+    src: url(font/Montserrat/Montserrat-Regular.ttf);
+}
+
+p {
+    font-family: Montserrat;
+    font-size: 40px;
+    color: #382A20;
+}
+
+body {
+    background-color: #F7F3EA;
+}
