@@ -55,6 +55,13 @@
             "icon": "bridge",
             "size": "nm",
             "folder": "pont du chemin de fer"
+        },
+        {
+            "name": "Gendarmerie",
+            "coordinates" : [43.919566, 2.140038],
+            "icon": "police-car",
+            "size": "nm",
+            "folder": "gendarmerie"
         }
     ]
 }
