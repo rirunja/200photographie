@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             };
 
             new_img.src = path;
-            cell_year.textContent = history.annee;
+            cell_year.textContent = "— " + history.annee;
         }
 
         function buildSlider(marker) {
@@ -167,18 +167,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
             
             slider_years.innerHTML = "";
 
-            marker.annees.forEach((history) => {
+            marker.annees.slice().reverse().forEach((history) => {
                 const span = document.createElement("span");
                 span.textContent = history.annee;
                 slider_years.appendChild(span);
             });
 
-            changeImage(marker, slider.value);
+            changeImage(marker, marker.annees.length - 1 - slider.value);
 
 
             slider.oninput = () => {
                 const index = parseInt(slider.value, 10);
-                changeImage(marker, index);
+                changeImage(marker, marker.annees.length - 1 - index);
             };
         }
 

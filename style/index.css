@@ -70,6 +70,10 @@ body {
     border-top-left-radius: 0;
 }
 
+.history-year {
+    line-height: 30px;
+}
+
 #history-years {
     font-size: 0.8rem;
     color: #6c757d;
