@@ -21,6 +21,20 @@ document.addEventListener("DOMContentLoaded", (event) => {
         return json.markers;
     }
 
+    async function getImageNameByFolder(folder) {
+        const response = await fetch(`https://api.github.com/repos/rirunja/200photographie/contents/photo/${folder}`);
+        const listFile = await response.json();
+        const liste = document.getElementById("liste-fichiers");
+        liste.innerHTML = "";
+        listFile.forEach(file => {
+            if (file.type === "file") {
+                const li = document.createElement("img");
+                li.src = `photo/${folder}/${file.name}`;
+                liste.appendChild(li);
+            }
+        });
+    }
+
     var map = L.map('map', {
         center: [43.92949, 2.14654],
         zoom: 14,
@@ -56,6 +70,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
     ).addTo(map);
     **/
+   
+    /** Jawg-Main
+    L.tileLayer(`https://tile.jawg.io/${STYLE}/{z}/{x}/{y}{r}.png?access-token=${ACCESS_TOKEN}`,
+         {
+             minZoom: 14,
+             maxZoom: 18,
+         }
+    ).addTo(map);
+    **/
 
     // Test
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -66,7 +89,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     map.on('click', () => {
         BOX.hide();
     });
-
     
     (async () => {
         const json = await getAlbiJson();
