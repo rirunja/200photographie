@@ -15,6 +15,8 @@ body {
     flex-direction: row;
 }
 
+/* ---- Map */
+
 #map {
     flex: 1;
     min-height: 0;
@@ -62,6 +64,29 @@ body {
     font-size: 32px;
 }
 
+/* ---- History card */
+
+.history-card .card-img-top {
+    border-top-left-radius: 0;
+}
+
+#history-years {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+#history-slider {
+    cursor: pointer;
+}
+
+.history-image {
+    transition: opacity 0.2s ease;
+}
+
+.history-image.changing {
+    opacity: 0.4;
+}
+
 /* ---- Bulles */
 
 #message-bulle {
@@ -100,4 +125,10 @@ body {
     cursor: pointer;
 
     font-size: 20px;
+}
+
+#liste-fichiers img {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
 }

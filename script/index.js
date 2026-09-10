@@ -21,6 +21,20 @@ document.addEventListener("DOMContentLoaded", (event) => {
         return json.markers;
     }
 
+    async function getImageNameByFolder(folder) {
+        const response = await fetch(`https://api.github.com/repos/rirunja/200photographie/contents/photo/${folder}`);
+        const listFile = await response.json();
+        const liste = document.getElementById("liste-fichiers");
+        liste.innerHTML = "";
+        listFile.forEach(file => {
+            if (file.type === "file") {
+                const li = document.createElement("img");
+                li.src = `photo/${folder}/${file.name}`;
+                liste.appendChild(li);
+            }
+        });
+    }
+
     var map = L.map('map', {
         center: [43.92949, 2.14654],
         zoom: 14,
@@ -47,25 +61,34 @@ document.addEventListener("DOMContentLoaded", (event) => {
         bulle.classList.remove("cachee");
     });
     
+    // Test
+    /**
     L.tileLayer(`https://tile.jawg.io/${STYLE}/{z}/{x}/{y}{r}.png?access-token=${ACCESS_TOKEN}`,
         {
             minZoom: 14,
             maxZoom: 18,
         }
     ).addTo(map);
+    **/
+   
+    /** Jawg-Main
+    L.tileLayer(`https://tile.jawg.io/${STYLE}/{z}/{x}/{y}{r}.png?access-token=${ACCESS_TOKEN}`,
+         {
+             minZoom: 14,
+             maxZoom: 18,
+         }
+    ).addTo(map);
+    **/
 
     // Test
-    /**
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         minZoom: 14,
         maxZoom: 18,
     }).addTo(map);
-    */
    
     map.on('click', () => {
         BOX.hide();
     });
-
     
     (async () => {
         const json = await getAlbiJson();
@@ -81,6 +104,83 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     (async () => {
         const markers = await getMarkersJson();
+
+        const cell_image = document.getElementById("building-image");
+        const cell_title = document.getElementById("building-name");
+        const cell_year = document.getElementById("building-year");
+        const cell_desc = document.getElementById("building-desc");
+
+        const slider_container = document.getElementById("history-slider-container");
+        const slider = document.getElementById("history-slider");
+        const slider_years = document.getElementById("history-years");
+
+        function changeImage(marker, index) {
+            if (!marker.annees || marker.annees.length === 0) {
+                return;
+            }
+
+            const history = marker.annees[index];
+
+            if (!history) {
+                return; // Afficher une image par défaut
+            }
+
+            const path = "photo/" + marker.folder + "/" + history.annee + "." + history.type;
+
+            cell_image.classList.add("changing");
+
+            const new_img = new Image();
+
+            new_img.onload = () => {
+                cell_image.src = path;
+                cell_image.classList.remove("changing");
+            };
+
+            new_img.onerror = () => {
+                console.error("Impossible de charger l'image :", path);
+                cell_image.classList.remove("changing");
+            };
+
+            new_img.src = path;
+            cell_year.textContent = history.annee;
+        }
+
+        function buildSlider(marker) {
+
+            if (!marker.annees || marker.annees.length === 0) {
+                slider_container.classList.add("d-none");
+                return;
+            }
+
+            if (marker.annees.length === 1) {
+                slider_container.classList.add("d-none");
+                changeImage(marker, 0);
+                return;
+            }
+
+            slider_container.classList.remove("d-none");
+
+            slider.min = 0;
+            slider.max = marker.annees.length - 1;
+            slider.value = marker.annees.length - 1;
+            slider.step = 1;
+            
+            slider_years.innerHTML = "";
+
+            marker.annees.forEach((history) => {
+                const span = document.createElement("span");
+                span.textContent = history.annee;
+                slider_years.appendChild(span);
+            });
+
+            changeImage(marker, slider.value);
+
+
+            slider.oninput = () => {
+                const index = parseInt(slider.value, 10);
+                changeImage(marker, index);
+            };
+        }
 
         markers.forEach(marker => {
             var size = 16;
@@ -129,10 +229,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     zoom(marker);
                 }
 
-                BOX.show();
-                document.getElementById("building-name").textContent = marker.name;
-                document.getElementById("building-image").src = "photo/" + marker.folder +"/caserne laperouse 1.jpg";
+                cell_title.textContent = marker.name;
+                cell_desc.textContent = marker.desc;
 
+                buildSlider(marker);
+
+                BOX.show();
             });
         });
     })();
