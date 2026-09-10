@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             };
 
             new_img.src = path;
-            cell_year.textContent = history.annee;
+            cell_year.textContent = "— " + history.annee;
         }
 
         function buildSlider(marker) {
@@ -167,14 +167,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
             
             slider_years.innerHTML = "";
 
-            marker.annees.forEach((history) => {
+            marker.annees.sort((a, b) => a).forEach((history) => {
                 const span = document.createElement("span");
                 span.textContent = history.annee;
                 slider_years.appendChild(span);
             });
 
             changeImage(marker, slider.value);
-
 
             slider.oninput = () => {
                 const index = parseInt(slider.value, 10);
