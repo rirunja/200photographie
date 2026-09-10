@@ -13,6 +13,55 @@
             "icon": "graduation-cap",
             "size": "nm",
             "folder": "caserne laperouse"
+        },
+        {
+            "name": "Pont Vieux",
+            "coordinates" : [43.93118, 2.144555],
+            "icon": "bridge",
+            "size": "nm",
+            "folder": "pont vieux"
+        },
+        {
+            "name": "Jardin Nationnal d'Albi",
+            "coordinates" : [43.926007, 2.147881],
+            "icon": "park",
+            "size": "nm",
+            "folder": "jardin national"
+        },
+        {
+            "name": "Parc Rochegude",
+            "coordinates" : [43.921521, 2.145199],
+            "icon": "park",
+            "size": "nm",
+            "folder": "parc rochegude"
+        },
+        {
+            "name": "Place Fernand Pelloutier",
+            "coordinates" : [43.92564, 2.152569],
+            "icon": "park",
+            "size": "nm",
+            "folder": "place fernandpelloutier"
+        },
+        {
+            "name": "Gare Albi Madeleine",
+            "coordinates" : [43.938149, 2.1411],
+            "icon": "train",
+            "size": "nm",
+            "folder": "gare albi madeleine"
+        },
+        {
+            "name": "Passerelle sur le Tarn",
+            "coordinates" : [43.929156, 2.138793],
+            "icon": "bridge",
+            "size": "nm",
+            "folder": "pont du chemin de fer"
+        },
+        {
+            "name": "Gendarmerie",
+            "coordinates" : [43.919566, 2.140038],
+            "icon": "police-car",
+            "size": "nm",
+            "folder": "gendarmerie"
         }
     ]
 }
