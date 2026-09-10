@@ -8,6 +8,26 @@
             "folder": "cathedrale",
             "annees": [
                 {
+                    "annee" : "1861",
+                    "type" : "jpg"
+                },
+                {
+                    "annee" : "1893",
+                    "type" : "jpg"
+                },
+                {
+                    "annee" : "1900",
+                    "type" : "jpg"
+                },
+                {
+                    "annee" : "1903",
+                    "type" : "jpg"
+                },
+                {
+                    "annee" : "1948",
+                    "type" : "jpg"
+                },
+                {
                     "annee" : "2025",
                     "type" : "jpg"
                 }
@@ -21,7 +41,7 @@
             "folder": "caserne laperouse",
             "annees": [
                 {
-                    "annee" : "2025",
+                    "annee" : "1909",
                     "type" : "jpg"
                 },
                 {
@@ -29,7 +49,7 @@
                     "type" : "jpg"
                 },
                 {
-                    "annee" : "1909",
+                    "annee" : "2025",
                     "type" : "jpg"
                 }
             ]
@@ -39,49 +59,123 @@
             "coordinates" : [43.93118, 2.144555],
             "icon": "bridge",
             "size": "nm",
-            "folder": "pont vieux"
+            "folder": "pont vieux",
+            "annees": [
+                {
+                    "annee" : "1899",
+                    "type" : "jpg"
+                },
+                {
+                    "annee" : "1960",
+                    "type" : "jpg"
+                },
+                {
+                    "annee" : "2000",
+                    "type" : "jpg"
+                },
+                {
+                    "annee" : "2020",
+                    "type" : "jpg"
+                }
+            ]
         },
         {
             "name": "Jardin Nationnal d'Albi",
             "coordinates" : [43.926007, 2.147881],
             "icon": "park",
             "size": "nm",
-            "folder": "jardin national"
+            "folder": "jardin national",
+            "annees": [
+                {
+                    "annee" : "1905",
+                    "type" : "jpg"
+                }
+            ]
         },
         {
             "name": "Parc Rochegude",
             "coordinates" : [43.921521, 2.145199],
             "icon": "park",
             "size": "nm",
-            "folder": "parc rochegude"
+            "folder": "parc rochegude",
+            "annees": [
+                {
+                    "annee" : "1906",
+                    "type" : "jpg"
+                }
+            ]
         },
         {
             "name": "Place Fernand Pelloutier",
             "coordinates" : [43.92564, 2.152569],
             "icon": "park",
             "size": "nm",
-            "folder": "place ferdinand pelloutier"
+            "folder": "place ferdinand pelloutier",
+            "annees": [
+                {
+                    "annee" : "1911",
+                    "type" : "jpg"
+                }
+            ]
         },
         {
             "name": "Gare Albi Madeleine",
             "coordinates" : [43.938149, 2.1411],
             "icon": "train",
             "size": "nm",
-            "folder": "gare albi madeleine"
+            "folder": "gare albi madeleine",
+            "annees": [
+                {
+                    "annee" : "1980",
+                    "type" : "jpg"
+                },
+                {
+                    "annee" : "2020",
+                    "type" : "jpg"
+                }
+            ]
         },
         {
             "name": "Passerelle sur le Tarn",
             "coordinates" : [43.929156, 2.138793],
             "icon": "bridge",
             "size": "nm",
-            "folder": "pont du chemin de fer"
+            "folder": "pont du chemin de fer",
+            "annees": [
+                {
+                    "annee" : "1903",
+                    "type" : "jpg"
+                },
+                {
+                    "annee" : "1912",
+                    "type" : "jpg"
+                }
+            ]
         },
         {
             "name": "Gendarmerie",
             "coordinates" : [43.919566, 2.140038],
             "icon": "police-car",
             "size": "nm",
-            "folder": "gendarmerie"
+            "folder": "gendarmerie",
+            "annees": [
+                {
+                    "annee" : "1900",
+                    "type" : "png"
+                },
+                {
+                    "annee" : "1950",
+                    "type" : "png"
+                },
+                {
+                    "annee" : "2000",
+                    "type" : "png"
+                },
+                {
+                    "annee" : "2020",
+                    "type" : "png"
+                }
+            ]
         }
     ]
 }
