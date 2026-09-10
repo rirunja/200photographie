@@ -5,14 +5,34 @@
             "coordinates" : [43.92841, 2.14255],
             "icon": "church",
             "size": "nm",
-            "folder": "cathedrale"
+            "folder": "cathedrale",
+            "annees": [
+                {
+                    "annee" : "2025",
+                    "type" : "jpg"
+                }
+            ]
         },
         {
             "name" : "INU Champollion",
             "coordinates" : [43.918654, 2.137635],
             "icon": "graduation-cap",
             "size": "nm",
-            "folder": "caserne laperouse"
+            "folder": "caserne laperouse",
+            "annees": [
+                {
+                    "annee" : "2025",
+                    "type" : "jpg"
+                },
+                {
+                    "annee" : "1950",
+                    "type" : "jpg"
+                },
+                {
+                    "annee" : "1909",
+                    "type" : "jpg"
+                }
+            ]
         }
     ]
 }
