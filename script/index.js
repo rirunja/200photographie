@@ -229,7 +229,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 }
 
                 cell_title.textContent = marker.name;
-                cell_desc.textContent = marker.desc;
+                cell_desc.textContent = marker.description || "Aucune description disponible.";
 
                 buildSlider(marker);
 

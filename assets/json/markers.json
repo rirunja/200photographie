@@ -2,6 +2,7 @@
     "markers": [
         {
             "name": "Cathédrale Sainte-Cécile d'Albi",
+            "description": "La cathédrale Sainte-Cécile domine le centre historique d'Albi avec son imposante silhouette et son architecture gothique.",
             "coordinates" : [43.92841, 2.14255],
             "icon": "church",
             "size": "nm",
@@ -35,6 +36,7 @@
         },
         {
             "name" : "INU Champollion",
+            "description": "L'institut universitaire Champollion est un lieu central pour la vie étudiante et culturelle d'Albi.",
             "coordinates" : [43.918654, 2.137635],
             "icon": "graduation-cap",
             "size": "nm",
@@ -56,6 +58,7 @@
         },
         {
             "name": "Pont Vieux",
+            "description": "Le Pont Vieux relie les rives du Tarn et constitue un repère historique majeur de la ville.",
             "coordinates" : [43.93118, 2.144555],
             "icon": "bridge",
             "size": "nm",
@@ -81,6 +84,7 @@
         },
         {
             "name": "Jardin Nationnal d'Albi",
+            "description": "Le jardin national d'Albi est un espace vert de promenade et de détente au cœur de la ville.",
             "coordinates" : [43.926007, 2.147881],
             "icon": "park",
             "size": "nm",
@@ -94,6 +98,7 @@
         },
         {
             "name": "Parc Rochegude",
+            "description": "Le parc Rochegude offre de belles vues sur Albi et sur le Tarn, avec des espaces de promenade ombragés.",
             "coordinates" : [43.921521, 2.145199],
             "icon": "park",
             "size": "nm",
@@ -107,10 +112,11 @@
         },
         {
             "name": "Place Fernand Pelloutier",
+            "description": "La place Fernand Pelloutier est un espace de vie urbaine très fréquenté au centre d'Albi.",
             "coordinates" : [43.92564, 2.152569],
             "icon": "park",
             "size": "nm",
-            "folder": "place st eugene&ferdinand pelloutier",
+            "folder": "place fernandipelloutier",
             "annees": [
                 {
                     "annee" : "1911",
@@ -120,6 +126,7 @@
         },
         {
             "name": "Gare Albi Madeleine",
+            "description": "La gare Albi Madeleine est un point de passage important dans la ville et son histoire ferroviaire.",
             "coordinates" : [43.938149, 2.1411],
             "icon": "train",
             "size": "nm",
@@ -137,6 +144,7 @@
         },
         {
             "name": "Passerelle sur le Tarn",
+            "description": "La passerelle sur le Tarn offre une vue panoramique sur le fleuve et le paysage albigien.",
             "coordinates" : [43.929156, 2.138793],
             "icon": "bridge",
             "size": "nm",
@@ -154,6 +162,7 @@
         },
         {
             "name": "Gendarmerie",
+            "description": "La gendarmerie est un bâtiment administratif emblématique du patrimoine urbain d'Albi.",
             "coordinates" : [43.919566, 2.140038],
             "icon": "police-car",
             "size": "nm",
