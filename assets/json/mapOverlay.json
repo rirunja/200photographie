@@ -8,14 +8,12 @@
                 {
                     "date": "1900",
                     "type": "png",
-                    "coordinates": [0, 0],
                     "coordinates_SW": [43.91644, 2.12693],
                     "coordinates_NE": [43.93298, 2.16774]
                 },
                 {
                     "date": "1907",
                     "type": "png",
-                    "coordinates": [0, 0],
                     "coordinates_SW": [43.91823, 2.13747],
                     "coordinates_NE": [43.93777, 2.15491]
                 },
@@ -32,43 +30,62 @@
                 {
                     "date": "1975",
                     "type": "png",
-                    "coordinates": [0, 0]
+                    "coordinates_SW": [43.91539, 2.12388],
+                    "coordinates_NE": [43.93292, 2.17014]
                 },
                 {
                     "date": "2000",
                     "type": "png",
-                    "coordinates": [0, 0],
                     "coordinates_SW": [43.91515, 2.12195],
                     "coordinates_NE": [43.93351, 2.16860]
                 },
                 {
                     "date": "2003",
                     "type": "png",
-                    "coordinates": [0, 0]
+                    "coordinates_SW": [43.91539, 2.12388],
+                    "coordinates_NE": [43.93292, 2.17014]
                 },
                 {
                     "date": "2007",
                     "type": "png",
-                    "coordinates": [0, 0]
+                    "coordinates_SW": [43.91539, 2.12272],
+                    "coordinates_NE": [43.93292, 2.17014]
                 },
                 {
                     "date": "2010",
                     "type": "png",
-                    "coordinates": [0, 0],
                     "coordinates_SW": [43.91524, 2.12270],
                     "coordinates_NE": [43.93394, 2.16920]
                 },
                 {
                     "date": "2013",
                     "type": "png",
-                    "coordinates": [0, 0]
+                    "coordinates_SW": [43.91484, 2.12345],
+                    "coordinates_NE": [43.93258, 2.17289]
+                },
+                {
+                    "date": "2018",
+                    "type": "png",
+                    "coordinates_SW": [43.91484, 2.12268],
+                    "coordinates_NE": [43.93255, 2.17165]
                 },
                 {
                     "date": "2020",
                     "type": "png",
-                    "coordinates": [0, 0],
                     "coordinates_SW": [43.91482, 2.12204],
                     "coordinates_NE": [43.93406, 2.17021]
+                },
+                {
+                    "date": "2022",
+                    "type": "png",
+                    "coordinates_SW": [43.91515, 2.12332],
+                    "coordinates_NE": [43.93253, 2.17068]
+                },
+                {
+                    "date": "2025",
+                    "type": "png",
+                    "coordinates_SW": [43.91515, 2.12332],
+                    "coordinates_NE": [43.93253, 2.17068]
                 }
             ]
         }
