@@ -32,6 +32,48 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const bulle = document.getElementById("message-bulle");
     const bouton = document.getElementById("bouton-bulle");
 
+    // --------------- TEST -----------------
+    async function getMapOverlayJson() {
+        const response = await fetch(JSON_URL + 'mapOverlay.json');
+        const json = await response.json();
+
+        return json.overlay[0];
+    }
+
+    const mouseCoords = document.createElement('div');
+    mouseCoords.style.position = 'fixed';
+    mouseCoords.style.bottom = '16px';
+    mouseCoords.style.left = '16px';
+    mouseCoords.style.zIndex = '2000';
+    mouseCoords.style.background = 'rgba(0,0,0,0.7)';
+    mouseCoords.style.color = '#fff';
+    mouseCoords.style.padding = '6px 10px';
+    mouseCoords.style.borderRadius = '8px';
+    mouseCoords.style.fontSize = '12px';
+    mouseCoords.style.fontFamily = 'monospace';
+    mouseCoords.textContent = 'Lat: --, Lng: --';
+    document.body.appendChild(mouseCoords);
+
+    map.on('mousemove', (event) => {
+        const { lat, lng } = event.latlng;
+        mouseCoords.textContent = `Lat: ${lat.toFixed(5)}, Lng: ${lng.toFixed(5)}`;
+    });
+
+    map.on('click', async (event) => {
+        const { lat, lng } = event.latlng;
+        const coords = `[${lat.toFixed(5)}, ${lng.toFixed(5)}]`;
+
+        try {
+            await navigator.clipboard.writeText(coords);
+            mouseCoords.textContent = `Copié: ${coords}`;
+        } catch (error) {
+            mouseCoords.textContent = `Coordonnées: ${coords}`;
+        }
+
+        BOX.hide();
+    });
+    // --------------------------------------
+
     // Cliquer n'importe où sur la page
     document.addEventListener("click", () => {
         bulle.classList.add("cachee");
@@ -57,7 +99,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     **/
 
     // Test
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    const currentMap = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         minZoom: 14,
         maxZoom: 18,
     }).addTo(map);
@@ -65,6 +107,47 @@ document.addEventListener("DOMContentLoaded", (event) => {
     map.on('click', () => {
         BOX.hide();
     });
+
+    // Map overlay
+    let year = 1907; // A récupérer depuis la frise chronologique
+    let historicalOverlay = null;
+
+    async function getOverlayBoundsByYear(selectedYear = year) {
+        const overlayConfig = await getMapOverlayJson();
+        const selectedOverlay = (overlayConfig.annees || []).find(entry => String(entry.date) === String(selectedYear));
+
+        if (
+            selectedOverlay &&
+            Array.isArray(selectedOverlay.coordinates_SW) &&
+            Array.isArray(selectedOverlay.coordinates_NE) &&
+            selectedOverlay.coordinates_SW.length === 2 &&
+            selectedOverlay.coordinates_NE.length === 2
+        ) {
+            return [selectedOverlay.coordinates_SW, selectedOverlay.coordinates_NE];
+        }
+
+        const center = map.getCenter();
+        return [
+            [center.lat, center.lng],
+            [center.lat, center.lng]
+        ];
+    }
+
+    async function updateHistoricalOverlay(selectedYear = year) {
+        const historicalBounds = await getOverlayBoundsByYear(selectedYear);
+        const imagePath = `photo/map/albi ${selectedYear}.png`;
+
+        if (historicalOverlay) {
+            map.removeLayer(historicalOverlay);
+        }
+
+        historicalOverlay = L.imageOverlay(imagePath, historicalBounds, {
+            opacity: 1,
+            attribution: `Carte historique ${selectedYear}`
+        }).addTo(map);
+    }
+
+    updateHistoricalOverlay(year);
 
     
     (async () => {
