@@ -38,8 +38,8 @@
                 {
                     "date": "2000",
                     "type": "png",
-                    "coordinates_SW": [0, 0],
-                    "coordinates_NE": [0, 0]
+                    "coordinates_SW": [43.91515, 2.12195],
+                    "coordinates_NE": [43.93351, 2.16860]
                 },
                 {
                     "date": "2003",
@@ -56,8 +56,8 @@
                 {
                     "date": "2010",
                     "type": "png",
-                    "coordinates_SW": [0, 0],
-                    "coordinates_NE": [0, 0]
+                    "coordinates_SW": [43.91524, 2.12270],
+                    "coordinates_NE": [43.93394, 2.16920]
                 },
                 {
                     "date": "2013",
@@ -66,10 +66,10 @@
                     "coordinates_NE": [0, 0]
                 },
                 {
-                    "date": "1950",
+                    "date": "2020",
                     "type": "png",
-                    "coordinates_SW": [0, 0],
-                    "coordinates_NE": [0, 0]
+                    "coordinates_SW": [43.91482, 2.12204],
+                    "coordinates_NE": [43.93406, 2.17021]
                 }
             ]
         }
