@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         const response = await fetch(JSON_URL + 'markers.json');
         const json = await response.json();
 
-        return json.markers;
+        return json;
     }
 
     async function getImageNameByFolder(folder) {
@@ -33,6 +33,93 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 liste.appendChild(li);
             }
         });
+    }
+
+    function getMarkerImages(marker, images) {
+        return images
+            .filter(image =>
+                image.markers && image.markers.includes(marker.id)
+            )
+            .sort((a, b) => Number(a.date) - Number(b.date));
+    }
+
+    function changeImage(marker, images, index) {
+        if (!images || images.length === 0) {
+            return;
+        }
+
+        const history = images[index];
+
+        if (!history) {
+            return; // Afficher une image par défaut
+        }
+
+        const path = "photo/" + marker.folder + "/" + history.annee + "." + history.type;
+
+        const cell_image = document.getElementById("building-image");
+        const cell_year = document.getElementById("building-year");
+
+        cell_image.classList.add("changing");
+
+        const new_img = new Image();
+
+        new_img.onload = () => {
+            cell_image.src = path;
+            cell_image.classList.remove("changing");
+        };
+
+        new_img.onerror = () => {
+            console.error("Impossible de charger l'image :", path);
+            cell_image.classList.remove("changing");
+        };
+
+        new_img.src = path;
+        cell_year.textContent = "— " + history.annee;
+    }
+
+    function buildSlider(marker, images) {
+        const slider_container = document.getElementById("history-slider-container");
+        const slider = document.getElementById("history-slider");
+        const slider_years = document.getElementById("history-years");
+
+        const cell_image = document.getElementById("building-image");
+        const cell_year = document.getElementById("building-year");
+        
+
+        if (!images || images.length === 0) {
+            slider_container.classList.add("d-none");
+            cell_image.removeAttribute("src");
+            cell_year.textContent = "";
+            return;
+        }
+
+        if (images.length === 1) {
+            slider_container.classList.add("d-none");
+            changeImage(marker, images, 0);
+            return;
+        }
+
+        slider_container.classList.remove("d-none");
+
+        slider.min = 0;
+        slider.max = images.length - 1;
+        slider.value = images.length - 1;
+        slider.step = 1;
+        
+        slider_years.innerHTML = "";
+
+        images.forEach(history => {
+            const span = document.createElement("span");
+            span.textContent = history.date;
+            slider_years.appendChild(span);
+        });
+
+        changeImage(marker, images, slider.value);
+
+        slider.oninput = () => {
+            const index = parseInt(slider.value, 10);
+            changeImage(marker, images, index);
+        };
     }
 
     var map = L.map('map', {
@@ -60,23 +147,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
         bulle.classList.remove("cachee");
     });
-    
-    // Test
+
     /**
     L.tileLayer(`https://tile.jawg.io/${STYLE}/{z}/{x}/{y}{r}.png?access-token=${ACCESS_TOKEN}`,
         {
             minZoom: 14,
             maxZoom: 18,
         }
-    ).addTo(map);
-    **/
-   
-    /** Jawg-Main
-    L.tileLayer(`https://tile.jawg.io/${STYLE}/{z}/{x}/{y}{r}.png?access-token=${ACCESS_TOKEN}`,
-         {
-             minZoom: 14,
-             maxZoom: 18,
-         }
     ).addTo(map);
     **/
 
@@ -103,83 +180,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
     })();
 
     (async () => {
-        const markers = await getMarkersJson();
+        const data = await getMarkersJson();
 
-        const cell_image = document.getElementById("building-image");
-        const cell_title = document.getElementById("building-name");
-        const cell_year = document.getElementById("building-year");
-        const cell_desc = document.getElementById("building-desc");
-
-        const slider_container = document.getElementById("history-slider-container");
-        const slider = document.getElementById("history-slider");
-        const slider_years = document.getElementById("history-years");
-
-        function changeImage(marker, index) {
-            if (!marker.annees || marker.annees.length === 0) {
-                return;
-            }
-
-            const history = marker.annees[index];
-
-            if (!history) {
-                return; // Afficher une image par défaut
-            }
-
-            const path = "photo/" + marker.folder + "/" + history.annee + "." + history.type;
-
-            cell_image.classList.add("changing");
-
-            const new_img = new Image();
-
-            new_img.onload = () => {
-                cell_image.src = path;
-                cell_image.classList.remove("changing");
-            };
-
-            new_img.onerror = () => {
-                console.error("Impossible de charger l'image :", path);
-                cell_image.classList.remove("changing");
-            };
-
-            new_img.src = path;
-            cell_year.textContent = "— " + history.annee;
-        }
-
-        function buildSlider(marker) {
-
-            if (!marker.annees || marker.annees.length === 0) {
-                slider_container.classList.add("d-none");
-                return;
-            }
-
-            if (marker.annees.length === 1) {
-                slider_container.classList.add("d-none");
-                changeImage(marker, 0);
-                return;
-            }
-
-            slider_container.classList.remove("d-none");
-
-            slider.min = 0;
-            slider.max = marker.annees.length - 1;
-            slider.value = marker.annees.length - 1;
-            slider.step = 1;
-            
-            slider_years.innerHTML = "";
-
-            marker.annees.sort((a, b) => a).forEach((history) => {
-                const span = document.createElement("span");
-                span.textContent = history.annee;
-                slider_years.appendChild(span);
-            });
-
-            changeImage(marker, slider.value);
-
-            slider.oninput = () => {
-                const index = parseInt(slider.value, 10);
-                changeImage(marker, index);
-            };
-        }
+        const markers = data.markers || [];
+        const images = data.images || [];
 
         markers.forEach(marker => {
             var size = 16;
@@ -228,10 +232,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     zoom(marker);
                 }
 
+                const cell_title = document.getElementById("building-name");
+                const cell_desc = document.getElementById("building-desc");
+
                 cell_title.textContent = marker.name;
                 cell_desc.textContent = marker.description || "Aucune description disponible.";
 
-                buildSlider(marker);
+                const markerImages = getMarkerImages(marker, images);
+                console.log(markerImages);
+                buildSlider(marker, markerImages);
 
                 BOX.show();
             });
