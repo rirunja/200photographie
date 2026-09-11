@@ -76,10 +76,10 @@
     "images": [
         {
             "id": "img-001",
-            "date": "2025",
+            "date": "2022",
             "type": "jpg",
             "folder": "cathedrale",
-            "filename": "2025.jpg",
+            "filename": "2022.png",
             "description": "",
             "markers": [
                 "cathedrale"
