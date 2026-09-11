@@ -8,12 +8,16 @@
                 {
                     "date": "1900",
                     "type": "png",
-                    "coordinates": [0, 0]
+                    "coordinates": [0, 0],
+                    "coordinates_SW": [43.91644, 2.12693],
+                    "coordinates_NE": [43.93298, 2.16774]
                 },
                 {
                     "date": "1907",
                     "type": "png",
-                    "coordinates": [0, 0]
+                    "coordinates": [0, 0],
+                    "coordinates_SW": [43.91823, 2.13747],
+                    "coordinates_NE": [43.93777, 2.15491]
                 },
                 {
                     "date": "1950",
