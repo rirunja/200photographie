@@ -1,0 +1,66 @@
+{
+    "overlay": [
+        {
+            "name": "carte",
+            "folder": "map",
+            "icon": "map",
+            "annees": [
+                {
+                    "date": "1900",
+                    "type": "png",
+                    "coordinates": [0, 0]
+                },
+                {
+                    "date": "1907",
+                    "type": "png",
+                    "coordinates": [0, 0]
+                },
+                {
+                    "date": "1950",
+                    "type": "png",
+                    "coordinates": [0, 0]
+                },
+                {
+                    "date": "1960",
+                    "type": "png",
+                    "coordinates": [0, 0]
+                },
+                {
+                    "date": "1975",
+                    "type": "png",
+                    "coordinates": [0, 0]
+                },
+                {
+                    "date": "2000",
+                    "type": "png",
+                    "coordinates": [0, 0]
+                },
+                {
+                    "date": "2003",
+                    "type": "png",
+                    "coordinates": [0, 0]
+                },
+                {
+                    "date": "2007",
+                    "type": "png",
+                    "coordinates": [0, 0]
+                },
+                {
+                    "date": "2010",
+                    "type": "png",
+                    "coordinates": [0, 0]
+                },
+                {
+                    "date": "2013",
+                    "type": "png",
+                    "coordinates": [0, 0]
+                },
+                {
+                    "date": "1950",
+                    "type": "png",
+                    "coordinates": [0, 0]
+                },
+            ]
+        }
+    ]
+}
