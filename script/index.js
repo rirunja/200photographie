@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 BOX.show();
                 document.getElementById("building-name").textContent = marker.name;
                 document.getElementById("building-image").src = "photo/" + marker.folder +"/caserne laperouse 1.jpg";
-
+                document.getElementById("building-description").textContent = marker.description;
             });
         });
     })();

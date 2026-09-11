@@ -5,7 +5,8 @@
             "coordinates" : [43.92841, 2.14255],
             "icon": "church",
             "size": "nm",
-            "folder": "cathedrale"
+            "folder": "cathedrale",
+            "description": "La Cathédrale Sainte-Cécile d'Albi est un chef-d'œuvre de l'architecture gothique méridionale, construite entre 1282 et 1480. Elle est célèbre pour sa façade en briques rouges et son intérieur richement décoré, notamment le plus grand ensemble de fresques du XIVe siècle en Europe. La cathédrale Sainte-Cécile, classée avec la cité épiscopale d'Albi depuis le 31 juillet 2010 sur la liste du patrimoine mondial de l'Unesco, est aujourd'hui l'une des cathédrales les plus visitées de France."
         },
         {
             "name" : "INU Champollion",
