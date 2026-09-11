@@ -1,180 +1,341 @@
 {
     "markers": [
         {
+            "id": "cathedrale",
             "name": "Cathédrale Sainte-Cécile d'Albi",
+            "description": "La cathédrale Sainte-Cécile domine le centre historique d'Albi avec son imposante silhouette et son architecture gothique. La cathédrale Sainte-Cécile, classée avec la cité épiscopale d'Albi depuis le 31 juillet 2010 sur la liste du patrimoine mondial de l'Unesco, est aujourd'hui l'une des cathédrales les plus visitées de France.",
             "coordinates" : [43.92841, 2.14255],
             "icon": "church",
-            "size": "nm",
-            "folder": "cathedrale",
-            "annees": [
-                {
-                    "annee" : "1861",
-                    "type" : "jpg"
-                },
-                {
-                    "annee" : "1893",
-                    "type" : "jpg"
-                },
-                {
-                    "annee" : "1900",
-                    "type" : "jpg"
-                },
-                {
-                    "annee" : "1903",
-                    "type" : "jpg"
-                },
-                {
-                    "annee" : "1948",
-                    "type" : "jpg"
-                },
-                {
-                    "annee" : "2025",
-                    "type" : "jpg"
-                }
-            ]
+            "size": "nm"
         },
         {
+            "id": "univ-cahmpollion",
             "name" : "INU Champollion",
+            "description": "L'institut universitaire Champollion est un lieu central pour la vie étudiante et culturelle d'Albi.",
             "coordinates" : [43.918654, 2.137635],
             "icon": "graduation-cap",
-            "size": "nm",
-            "folder": "caserne laperouse",
-            "annees": [
-                {
-                    "annee" : "1909",
-                    "type" : "jpg"
-                },
-                {
-                    "annee" : "1950",
-                    "type" : "jpg"
-                },
-                {
-                    "annee" : "2025",
-                    "type" : "jpg"
-                }
-            ]
+            "size": "nm"
         },
         {
+            "id": "vieux-pont",
             "name": "Pont Vieux",
+            "description": "Le Pont Vieux relie les rives du Tarn et constitue un repère historique majeur de la ville. Le Pont du Tarn, tel qu'il s'appelait à l'origine, a été construit entre 1035 et 1042. Les parties les plus anciennes visibles actuellement datent cependant du XIIIe siècle. Au départ, trop étroit, il ne permet pas le passage des charrettes. Les marchandises sont transportées à dos d'animal ou faix d'homme. Il est élargi au XIVe siècle, puis à nouveau au XIXe siècle. Il est classé monument historique depuis 1840.",
             "coordinates" : [43.93118, 2.144555],
             "icon": "bridge",
-            "size": "nm",
-            "folder": "pont vieux",
-            "annees": [
-                {
-                    "annee" : "1899",
-                    "type" : "jpg"
-                },
-                {
-                    "annee" : "1960",
-                    "type" : "jpg"
-                },
-                {
-                    "annee" : "2000",
-                    "type" : "jpg"
-                },
-                {
-                    "annee" : "2020",
-                    "type" : "jpg"
-                }
-            ]
+            "size": "nm"
         },
         {
+            "id": "jardin-albi",
             "name": "Jardin Nationnal d'Albi",
+            "description": "Le jardin national d'Albi est un espace vert de promenade et de détente au cœur de la ville.",
             "coordinates" : [43.926007, 2.147881],
             "icon": "park",
-            "size": "nm",
-            "folder": "jardin national",
-            "annees": [
-                {
-                    "annee" : "1905",
-                    "type" : "jpg"
-                }
-            ]
+            "size": "nm"
         },
         {
+            "id": "parc-rochegude",
             "name": "Parc Rochegude",
+            "description": "Le parc Rochegude offre de belles vues sur Albi et sur le Tarn, avec des espaces de promenade ombragés.",
             "coordinates" : [43.921521, 2.145199],
             "icon": "park",
-            "size": "nm",
-            "folder": "parc rochegude",
-            "annees": [
-                {
-                    "annee" : "1906",
-                    "type" : "jpg"
-                }
-            ]
+            "size": "nm"
         },
         {
+            "id": "place-fernand-pelloutier",
             "name": "Place Fernand Pelloutier",
+            "description": "La place Fernand Pelloutier est un espace de vie urbaine très fréquenté au centre d'Albi.",
             "coordinates" : [43.92564, 2.152569],
             "icon": "park",
-            "size": "nm",
-            "folder": "place st eugene&ferdinand pelloutier",
-            "annees": [
-                {
-                    "annee" : "1911",
-                    "type" : "jpg"
-                }
-            ]
+            "size": "nm"
         },
         {
+            "id": "gare-albi-madeleine",
             "name": "Gare Albi Madeleine",
+            "description": "La gare Albi Madeleine est un point de passage important dans la ville et son histoire ferroviaire. Elle est mise en service en 1858 par la Compagnie des houillères et chemins de fer de Carmaux-Toulouse, avant de devenir la « gare d'Albi-Midi » de la Compagnie des chemins de fer du Midi et du Canal latéral à la Garonne (Midi). C'est, en importance, la seconde gare de voyageurs de la ville, la première étant celle d'Albi-Ville.",
             "coordinates" : [43.938149, 2.1411],
             "icon": "train",
-            "size": "nm",
-            "folder": "gare albi madeleine",
-            "annees": [
-                {
-                    "annee" : "1980",
-                    "type" : "jpg"
-                },
-                {
-                    "annee" : "2020",
-                    "type" : "jpg"
-                }
-            ]
+            "size": "nm"
         },
         {
+            "id": "passerelle-tarn",
             "name": "Passerelle sur le Tarn",
+            "description": "La passerelle sur le Tarn offre une vue panoramique sur le fleuve et le paysage albigien.",
             "coordinates" : [43.929156, 2.138793],
             "icon": "bridge",
-            "size": "nm",
-            "folder": "pont du chemin de fer",
-            "annees": [
-                {
-                    "annee" : "1903",
-                    "type" : "jpg"
-                },
-                {
-                    "annee" : "1912",
-                    "type" : "jpg"
-                }
+            "size": "nm"
+        },
+        {
+            "id": "gendarmerie",
+            "name": "Gendarmerie",
+            "description": "La gendarmerie est un bâtiment administratif emblématique du patrimoine urbain d'Albi.",
+            "coordinates" : [43.919566, 2.140038],
+            "icon": "police-car",
+            "size": "nm"
+        }
+    ],
+    "images": [
+        {
+            "id": "img-001",
+            "date": "2025",
+            "type": "jpg",
+            "folder": "cathedrale",
+            "filename": "2025.jpg",
+            "description": "",
+            "markers": [
+                "cathedrale"
             ]
         },
         {
-            "name": "Gendarmerie",
-            "coordinates" : [43.919566, 2.140038],
-            "icon": "police-car",
-            "size": "nm",
+            "id": "img-002",
+            "date": "1948",
+            "type": "jpg",
+            "folder": "cathedrale",
+            "filename": "1948.jpg",
+            "description": "",
+            "markers": [
+                "cathedrale"
+            ]
+        },
+        {
+            "id": "img-003",
+            "date": "1903",
+            "type": "jpg",
+            "folder": "cathedrale",
+            "filename": "1903.jpg",
+            "description": "",
+            "markers": [
+                "cathedrale"
+            ]
+        },
+        {
+            "id": "img-004",
+            "date": "1900",
+            "type": "jpg",
+            "folder": "cathedrale",
+            "filename": "1900.jpg",
+            "description": "",
+            "markers": [
+                "cathedrale"
+            ]
+        },
+        {
+            "id": "img-005",
+            "date": "1893",
+            "type": "jpg",
+            "folder": "cathedrale",
+            "filename": "1893.jpg",
+            "description": "",
+            "markers": [
+                "cathedrale"
+            ]
+        },
+        {
+            "id": "img-006",
+            "date": "1861",
+            "type": "jpg",
+            "folder": "cathedrale",
+            "filename": "1861.jpg",
+            "description": "",
+            "markers": [
+                "cathedrale"
+            ]
+        },
+        {
+            "id": "img-007",
+            "date": "2025",
+            "type": "jpg",
+            "folder": "caserne laperouse",
+            "filename": "2025.jpg",
+            "description": "",
+            "markers": [
+                "univ-cahmpollion"
+            ]
+        },
+        {
+            "id": "img-008",
+            "date": "1950",
+            "type": "jpg",
+            "folder": "caserne laperouse",
+            "filename": "1950.jpg",
+            "description": "",
+            "markers": [
+                "univ-cahmpollion"
+            ]
+        },
+        {
+            "id": "img-009",
+            "date": "1909",
+            "type": "jpg",
+            "folder": "caserne laperouse",
+            "filename": "1909.jpg",
+            "description": "",
+            "markers": [
+                "univ-cahmpollion"
+            ]
+        },
+        {
+            "id": "img-010",
+            "date": "2020",
+            "type": "jpg",
+            "folder": "pont vieux",
+            "filename": "2020.jpg",
+            "description": "",
+            "markers": [
+                "vieux-pont"
+            ]
+        },
+        {
+            "id": "img-011",
+            "date": "2000",
+            "type": "jpg",
+            "folder": "pont vieux",
+            "filename": "2000.jpg",
+            "description": "",
+            "markers": [
+                "vieux-pont"
+            ]
+        },
+        {
+            "id": "img-012",
+            "date": "1960",
+            "type": "jpg",
+            "folder": "pont vieux",
+            "filename": "1960.jpg",
+            "description": "",
+            "markers": [
+                "vieux-pont"
+            ]
+        },
+        {
+            "id": "img-013",
+            "date": "1899",
+            "type": "jpg",
+            "folder": "pont vieux",
+            "filename": "1899.jpg",
+            "description": "",
+            "markers": [
+                "vieux-pont"
+            ]
+        },
+        {
+            "id": "img-014",
+            "date": "1905",
+            "type": "jpg",
+            "folder": "jardin national",
+            "filename": "1905.jpg",
+            "description": "",
+            "markers": [
+                "jardin-albi"
+            ]
+        },
+        {
+            "id": "img-015",
+            "date": "1906",
+            "type": "jpg",
+            "folder": "parc rochegude",
+            "filename": "1906.jpg",
+            "description": "",
+            "markers": [
+                "parc-rochegude"
+            ]
+        },
+        {
+            "id": "img-016",
+            "date": "1911",
+            "type": "jpg",
+            "folder": "place fernandipelloutier",
+            "filename": "1911.jpg",
+            "description": "",
+            "markers": [
+                "place-fernand-pelloutier"
+            ]
+        },
+        {
+            "id": "img-017",
+            "date": "2020",
+            "type": "jpg",
+            "folder": "gare albi madeleine",
+            "filename": "2020.jpg",
+            "description": "",
+            "markers": [
+                "gare-albi-madeleine"
+            ]
+        },
+        {
+            "id": "img-018",
+            "date": "1980",
+            "type": "jpg",
+            "folder": "gare albi madeleine",
+            "filename": "1980.jpg",
+            "description": "",
+            "markers": [
+                "gare-albi-madeleine"
+            ]
+        },
+        {
+            "id": "img-019",
+            "date": "1912",
+            "type": "jpg",
+            "folder": "pont du chemin de fer",
+            "filename": "1912.jpg",
+            "description": "",
+            "markers": [
+                "passerelle-tarn"
+            ]
+        },
+        {
+            "id": "img-020",
+            "date": "1903",
+            "type": "jpg",
+            "folder": "pont du chemin de fer",
+            "filename": "1903.jpg",
+            "description": "",
+            "markers": [
+                "passerelle-tarn"
+            ]
+        },
+        {
+            "id": "img-021",
+            "date": "2020",
+            "type": "jpg",
             "folder": "gendarmerie",
-            "annees": [
-                {
-                    "annee" : "1900",
-                    "type" : "png"
-                },
-                {
-                    "annee" : "1950",
-                    "type" : "png"
-                },
-                {
-                    "annee" : "2000",
-                    "type" : "png"
-                },
-                {
-                    "annee" : "2020",
-                    "type" : "png"
-                }
+            "filename": "2020.jpg",
+            "description": "",
+            "markers": [
+                "gendarmerie"
+            ]
+        },
+        {
+            "id": "img-022",
+            "date": "2000",
+            "type": "jpg",
+            "folder": "gendarmerie",
+            "filename": "2000.jpg",
+            "description": "",
+            "markers": [
+                "gendarmerie"
+            ]
+        },
+        {
+            "id": "img-023",
+            "date": "1950",
+            "type": "jpg",
+            "folder": "gendarmerie",
+            "filename": "1950.jpg",
+            "description": "",
+            "markers": [
+                "gendarmerie"
+            ]
+        },
+        {
+            "id": "img-024",
+            "date": "1900",
+            "type": "jpg",
+            "folder": "gendarmerie",
+            "filename": "1900.jpg",
+            "description": "",
+            "markers": [
+                "gendarmerie"
             ]
         }
     ]

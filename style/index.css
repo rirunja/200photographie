@@ -64,10 +64,29 @@ body {
     font-size: 32px;
 }
 
+/* ---- Backoffice */
+
+#backoffice {   
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    text-decoration: none;
+}
+
+#backoffice i {
+    color: black;
+    font-size: 32px;
+}
+
 /* ---- History card */
 
 .history-card .card-img-top {
     border-top-left-radius: 0;
+}
+
+.history-card .card-body {
+    flex: 0;
 }
 
 .history-year {
