@@ -2,7 +2,7 @@
     "markers": [
         {
             "name": "Cathédrale Sainte-Cécile d'Albi",
-            "description": "La cathédrale Sainte-Cécile domine le centre historique d'Albi avec son imposante silhouette et son architecture gothique.",
+            "description": "La cathédrale Sainte-Cécile domine le centre historique d'Albi avec son imposante silhouette et son architecture gothique. La cathédrale Sainte-Cécile, classée avec la cité épiscopale d'Albi depuis le 31 juillet 2010 sur la liste du patrimoine mondial de l'Unesco, est aujourd'hui l'une des cathédrales les plus visitées de France.",
             "coordinates" : [43.92841, 2.14255],
             "icon": "church",
             "size": "nm",
@@ -58,7 +58,7 @@
         },
         {
             "name": "Pont Vieux",
-            "description": "Le Pont Vieux relie les rives du Tarn et constitue un repère historique majeur de la ville.",
+            "description": "Le Pont Vieux relie les rives du Tarn et constitue un repère historique majeur de la ville. Le Pont du Tarn, tel qu'il s'appelait à l'origine, a été construit entre 1035 et 1042. Les parties les plus anciennes visibles actuellement datent cependant du XIIIe siècle. Au départ, trop étroit, il ne permet pas le passage des charrettes. Les marchandises sont transportées à dos d'animal ou faix d'homme. Il est élargi au XIVe siècle, puis à nouveau au XIXe siècle. Il est classé monument historique depuis 1840.",
             "coordinates" : [43.93118, 2.144555],
             "icon": "bridge",
             "size": "nm",
@@ -126,7 +126,7 @@
         },
         {
             "name": "Gare Albi Madeleine",
-            "description": "La gare Albi Madeleine est un point de passage important dans la ville et son histoire ferroviaire.",
+            "description": "La gare Albi Madeleine est un point de passage important dans la ville et son histoire ferroviaire. Elle est mise en service en 1858 par la Compagnie des houillères et chemins de fer de Carmaux-Toulouse, avant de devenir la « gare d'Albi-Midi » de la Compagnie des chemins de fer du Midi et du Canal latéral à la Garonne (Midi). C'est, en importance, la seconde gare de voyageurs de la ville, la première étant celle d'Albi-Ville.",
             "coordinates" : [43.938149, 2.1411],
             "icon": "train",
             "size": "nm",
