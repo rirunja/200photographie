@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             return; // Afficher une image par défaut
         }
 
-        const path = "photo/" + marker.folder + "/" + history.annee + "." + history.type;
+        const path = "photo/" + history.folder + "/" + history.filename + "." + history.type;
 
         const cell_image = document.getElementById("building-image");
         const cell_year = document.getElementById("building-year");
@@ -62,7 +62,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         cell_image.classList.add("changing");
 
         const new_img = new Image();
-
         new_img.onload = () => {
             cell_image.src = path;
             cell_image.classList.remove("changing");
@@ -85,7 +84,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         const cell_image = document.getElementById("building-image");
         const cell_year = document.getElementById("building-year");
         
-
         if (!images || images.length === 0) {
             slider_container.classList.add("d-none");
             cell_image.removeAttribute("src");
@@ -239,7 +237,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
                 cell_desc.textContent = marker.description || "Aucune description disponible.";
 
                 const markerImages = getMarkerImages(marker, images);
-                console.log(markerImages);
+                
                 buildSlider(marker, markerImages);
 
                 BOX.show();

@@ -9,7 +9,7 @@
             "size": "nm"
         },
         {
-            "id": "univ-cahmpollion",
+            "id": "univ-champollion",
             "name" : "INU Champollion",
             "description": "L'institut universitaire Champollion est un lieu central pour la vie étudiante et culturelle d'Albi.",
             "coordinates" : [43.918654, 2.137635],
@@ -79,7 +79,7 @@
             "date": "2022",
             "type": "jpg",
             "folder": "cathedrale",
-            "filename": "2022.png",
+            "filename": "2022",
             "description": "",
             "markers": [
                 "cathedrale"
@@ -89,7 +89,7 @@
             "date": "2008",
             "type": "jpg",
             "folder": "cathedrale",
-            "filename": "2008.jpg",
+            "filename": "2008",
             "description": "",
             "markers": [
                 "cathedrale"
@@ -100,7 +100,7 @@
             "date": "1948",
             "type": "jpg",
             "folder": "cathedrale",
-            "filename": "1948.jpg",
+            "filename": "1948",
             "description": "",
             "markers": [
                 "cathedrale"
@@ -111,7 +111,7 @@
             "date": "1903",
             "type": "jpg",
             "folder": "cathedrale",
-            "filename": "1903.jpg",
+            "filename": "1903",
             "description": "",
             "markers": [
                 "cathedrale"
@@ -122,7 +122,7 @@
             "date": "1900",
             "type": "jpg",
             "folder": "cathedrale",
-            "filename": "1900.jpg",
+            "filename": "1900",
             "description": "",
             "markers": [
                 "cathedrale"
@@ -133,7 +133,7 @@
             "date": "1893",
             "type": "jpg",
             "folder": "cathedrale",
-            "filename": "1893.jpg",
+            "filename": "1893",
             "description": "",
             "markers": [
                 "cathedrale"
@@ -144,7 +144,7 @@
             "date": "1861",
             "type": "jpg",
             "folder": "cathedrale",
-            "filename": "1861.jpg",
+            "filename": "1861",
             "description": "",
             "markers": [
                 "cathedrale"
@@ -155,7 +155,7 @@
             "date": "2025",
             "type": "jpg",
             "folder": "caserne laperouse",
-            "filename": "2025.jpg",
+            "filename": "2025",
             "description": "",
             "markers": [
                 "univ-champollion"
@@ -166,7 +166,7 @@
             "date": "1950",
             "type": "jpg",
             "folder": "caserne laperouse",
-            "filename": "1950.jpg",
+            "filename": "1950",
             "description": "",
             "markers": [
                 "univ-champollion"
@@ -177,7 +177,7 @@
             "date": "1909",
             "type": "jpg",
             "folder": "caserne laperouse",
-            "filename": "1909.jpg",
+            "filename": "1909",
             "description": "",
             "markers": [
                 "univ-champollion"
@@ -188,7 +188,7 @@
             "date": "2020",
             "type": "jpg",
             "folder": "pont vieux",
-            "filename": "2020.jpg",
+            "filename": "2020",
             "description": "",
             "markers": [
                 "vieux-pont"
@@ -199,7 +199,7 @@
             "date": "2000",
             "type": "jpg",
             "folder": "pont vieux",
-            "filename": "2000.jpg",
+            "filename": "2000",
             "description": "",
             "markers": [
                 "vieux-pont"
@@ -210,7 +210,7 @@
             "date": "1960",
             "type": "jpg",
             "folder": "pont vieux",
-            "filename": "1960.jpg",
+            "filename": "1960",
             "description": "",
             "markers": [
                 "vieux-pont"
@@ -221,7 +221,7 @@
             "date": "1899",
             "type": "jpg",
             "folder": "pont vieux",
-            "filename": "1899.jpg",
+            "filename": "1899",
             "description": "",
             "markers": [
                 "vieux-pont"
@@ -232,7 +232,7 @@
             "date": "1905",
             "type": "jpg",
             "folder": "jardin national",
-            "filename": "1905.jpg",
+            "filename": "1905",
             "description": "",
             "markers": [
                 "jardin-albi"
@@ -242,7 +242,7 @@
             "date": "2012",
             "type": "jpg",
             "folder": "jardin national",
-            "filename": "2012.jpg",
+            "filename": "2012",
             "description": "",
             "markers": [
                 "jardin-albi"
@@ -252,7 +252,7 @@
             "date": "2022",
             "type": "jpg",
             "folder": "jardin national",
-            "filename": "2022.jpg",
+            "filename": "2022",
             "description": "",
             "markers": [
                 "jardin-albi"
@@ -263,7 +263,7 @@
             "date": "1906",
             "type": "jpg",
             "folder": "parc rochegude",
-            "filename": "1906.jpg",
+            "filename": "1906",
             "description": "",
             "markers": [
                 "parc-rochegude"
@@ -274,7 +274,7 @@
             "date": "2010",
             "type": "jpg",
             "folder": "parc rochegude",
-            "filename": "2010.jpg",
+            "filename": "2010",
             "description": "",
             "markers": [
                 "parc-rochegude"
@@ -284,8 +284,8 @@
             "id": "img-016",
             "date": "1911",
             "type": "jpg",
-            "folder": "place fernandipelloutier",
-            "filename": "1911.jpg",
+            "folder": "place ferdinandpelloutier",
+            "filename": "1911",
             "description": "",
             "markers": [
                 "place-fernand-pelloutier"
@@ -295,8 +295,8 @@
             "id": "img-029",
             "date": "2021",
             "type": "jpg",
-            "folder": "place fernandipelloutier",
-            "filename": "2021.jpg",
+            "folder": "place ferdinandpelloutier",
+            "filename": "2021",
             "description": "",
             "markers": [
                 "place-fernand-pelloutier"
@@ -307,7 +307,7 @@
             "date": "2020",
             "type": "jpg",
             "folder": "gare albi madeleine",
-            "filename": "2020.jpg",
+            "filename": "2020",
             "description": "",
             "markers": [
                 "gare-albi-madeleine"
@@ -318,7 +318,7 @@
             "date": "1980",
             "type": "jpg",
             "folder": "gare albi madeleine",
-            "filename": "1980.jpg",
+            "filename": "1980",
             "description": "",
             "markers": [
                 "gare-albi-madeleine"
@@ -329,7 +329,7 @@
             "date": "1912",
             "type": "jpg",
             "folder": "pont du chemin de fer",
-            "filename": "1912.jpg",
+            "filename": "1912",
             "description": "",
             "markers": [
                 "passerelle-tarn"
@@ -340,7 +340,7 @@
             "date": "1903",
             "type": "jpg",
             "folder": "pont du chemin de fer",
-            "filename": "1903.jpg",
+            "filename": "1903",
             "description": "",
             "markers": [
                 "passerelle-tarn"
@@ -351,7 +351,7 @@
             "date": "2022",
             "type": "jpg",
             "folder": "pont du chemin de fer",
-            "filename": "2022.jpg",
+            "filename": "2022",
             "description": "",
             "markers": [
                 "passerelle-tarn"
@@ -360,9 +360,9 @@
         {
             "id": "img-021",
             "date": "2020",
-            "type": "jpg",
+            "type": "png",
             "folder": "gendarmerie",
-            "filename": "2020.jpg",
+            "filename": "2020",
             "description": "",
             "markers": [
                 "gendarmerie"
@@ -371,9 +371,9 @@
         {
             "id": "img-022",
             "date": "2000",
-            "type": "jpg",
+            "type": "png",
             "folder": "gendarmerie",
-            "filename": "2000.jpg",
+            "filename": "2000",
             "description": "",
             "markers": [
                 "gendarmerie"
@@ -382,9 +382,9 @@
         {
             "id": "img-023",
             "date": "1950",
-            "type": "jpg",
+            "type": "png",
             "folder": "gendarmerie",
-            "filename": "1950.jpg",
+            "filename": "1950",
             "description": "",
             "markers": [
                 "gendarmerie"
@@ -393,9 +393,9 @@
         {
             "id": "img-024",
             "date": "1900",
-            "type": "jpg",
+            "type": "png",
             "folder": "gendarmerie",
-            "filename": "1900.jpg",
+            "filename": "1900",
             "description": "",
             "markers": [
                 "gendarmerie"
