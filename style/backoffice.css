@@ -1,0 +1,58 @@
+/* ---- Photographie */
+
+.image-row {
+    display: grid;
+    grid-template-columns: 120px 1fr auto;
+    gap: 1rem;
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    align-items: center;
+}
+
+.image-row:last-child {
+    border-bottom: none;
+}
+
+.image-thumbnail {
+    width: 120px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 6px;
+    background: #eee;
+}
+
+.image-info h6 {
+    margin-bottom: .3rem;
+}
+
+.image-info p {
+    margin-bottom: .3rem;
+    color: #666;
+}
+
+/* ---- Scroll view */
+
+.images-list {
+    height: 75vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.images-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.images-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.images-list::-webkit-scrollbar-thumb {
+    background: #bbb;
+    border-radius: 10px;
+}
+
+.images-list::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
