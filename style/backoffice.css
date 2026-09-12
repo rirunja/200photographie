@@ -1,3 +1,9 @@
+:root {
+    --markers-form-height: 652px;
+    --photographie-list-height: 760px;
+    --photographie-form-height: calc(var(--markers-form-height) + var(--photographie-list-height) + 24px);
+}
+
 /* ---- Photographie */
 
 .image-row {
@@ -30,29 +36,142 @@
     color: #666;
 }
 
+/* ---- Icons */
+
+.leaflet-div-icon:has(.ph) {
+    background-color: transparent;
+    border: none;
+}
+
+.ph, .ph.sm {
+    font-size: 16px;
+}
+
+.ph.nm {
+    font-size: 20px;
+}
+
+.ph.lg {
+    font-size: 24px;
+}
+
+.ph.xl {
+    font-size: 32px;
+}
+
+.marker-icon-preview {
+    width: 100%;
+    height: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+
+    background-color: #f8f9fa;
+
+    overflow: hidden;
+}
+
+.marker-icon-preview i {
+    line-height: 1;
+}
+
+.marker-icon-preview > div.position-relative {
+    transform: translatey(-70%);
+}
+
 /* ---- Scroll view */
 
-.images-list {
-    height: 75vh;
+#photo-card {
+    max-height: var(--photographie-form-height);
+}
+
+#marker-card {
+    height: var(--markers-form-height);
+    max-height: var(--markers-form-height);
+}
+
+#list-card {
+    height: var(--photographie-list-height);
+    max-height: var(--photographie-list-height);
+    
+    display: flex;
+    flex-direction: column;
+}
+
+#list-card .card-body {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.form-scroll-view {
+    flex: 1 1 auto;
+    min-height: 0;
+
     overflow-y: auto;
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
 
-.images-list::-webkit-scrollbar {
+.form-scroll-view::-webkit-scrollbar {
     width: 8px;
 }
 
-.images-list::-webkit-scrollbar-track {
+.form-scroll-view::-webkit-scrollbar-track {
     background: #f1f1f1;
     border-radius: 10px;
 }
 
-.images-list::-webkit-scrollbar-thumb {
+.form-scroll-view::-webkit-scrollbar-thumb {
     background: #bbb;
     border-radius: 10px;
 }
 
-.images-list::-webkit-scrollbar-thumb:hover {
+.form-scroll-view::-webkit-scrollbar-thumb:hover {
     background: #888;
+}
+
+.image-preview {
+    width: 100%;
+}
+
+/* ---- Marqueurs */
+
+#markers-list {
+    max-height: 320px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.marker-option {
+    padding: 0.75rem;
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+    margin-bottom: 0.5rem;
+    transition: background-color 0.15s ease;
+}
+
+.marker-option:hover {
+    background-color: #f8f9fa;
+}
+
+.marker-option .form-check {
+    margin-bottom: 0;
+}
+
+#marker-map {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.375rem;
+    overflow: hidden;
+    border: 1px solid #dee2e6;
+}
+
+#marker-form input[readonly] {
+    background-color: #f8f9fa;
 }

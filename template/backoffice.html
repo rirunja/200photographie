@@ -4,9 +4,22 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Backoffice — Bicentenaires de photographie</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Bootstrap CDN -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
+        <!-- Phosphor's CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+        <!-- Leaflet's CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+        <!-- Application's CSS -->
         <link rel="stylesheet" href="../style/backoffice.css">
+        <!-- Leaflet's JS -->
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+        <!-- Application's JS -->
         <script src="../script/backoffice.js"></script>
     </head>
     <body>
@@ -53,16 +66,17 @@
 
                 <!-- Formulaire -->
                 <div class="col-xl-5">
-                    <div class="card shadow-sm">
+                    <div class="card shadow-sm" id="photo-card">
                         <div class="card-header">
                             <h5 class="mb-0"><i class="ph ph-image"></i>Ajouter une photographie</h5>
                         </div>
-                        <div class="card-body">
-                            <form id="image-form">
+                        <div class="card-body p-0">
+                            <form id="image-form" class="form-scroll-view p-4">
                                 <div class="mb-3">
                                     <!-- Images -->
                                     <label class="form-label">Photographie *</label>
                                     <input type="file" class="form-control" id="image-file" accept="image/*" required>
+                                    <input type="hidden" id="image-filename">
                                     <div id="image-preview-container" class="mt-3 d-none">
                                         <img id="image-preview" class="image-preview" alt="Prévisualisation">
                                     </div>
@@ -102,9 +116,9 @@
                                 </div>
                                 <div class="mb-4">
                                     <!-- Marqueurs -->
-                                    <label class="form-label">Marqueurs associés *</label>
+                                    <label class="form-label m-0">Marqueurs associés *</label>
+                                    <div class="form-text m-0 mb-3">Une photographie peut être associée à plusieurs marqueurs.</div>
                                     <div id="markers-list" class="markers-selector"></div>
-                                    <div class="form-text">Une photographie peut être associée à plusieurs marqueurs.</div>
                                 </div>
                                 <div class="d-flex gap-2">
                                     <button type="submit" class="btn btn-primary flex-grow-1">
@@ -123,13 +137,82 @@
 
                 <!-- LISTE -->
                 <div class="col-xl-7">
-                    <div class="card shadow-sm">
+
+                    <!-- MARQUEURS -->
+                    <div class="card shadow-sm mb-4" id="marker-card">
+                        <div class="card-header">
+                            <h5 class="mb-0"><i class="ph ph-map-pin"></i>Ajouter un marqueur</h5>
+                        </div>
+
+                        <div class="card-body d-flex flex-column">
+                            <p class="text-muted small mb-3">
+                                Cliquez sur la carte pour choisir l'emplacement du nouveau marqueur.
+                            </p>
+                            <div id="marker-map"></div>
+                            <form id="marker-form" class="mt-3">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="marker-name" class="form-label">Nom du marqueur *</label>
+                                        <input type="text" class="form-control" id="marker-name" placeholder="Ex. Gare d'Albi" required>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label for="marker-latitude" class="form-label">Latitude</label>
+                                        <input type="number" class="form-control" id="marker-latitude" step="any" readonly required>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="marker-longitude" class="form-label">Longitude</label>
+                                        <input type="number" class="form-control" id="marker-longitude" step="any" readonly required>
+                                    </div>
+                                </div>
+
+                                <div class="row g-4">
+                                    <div class="col-md-3">
+                                        <label class="form-label">Icône du marqueur</label>
+
+                                        <div id="marker-icon-preview-container" class="marker-icon-preview">
+                                            <div class="position-relative">
+                                                <i id="marker-icon-preview" class="ph ph-map-pin-simple-area"></i>
+                                                <span id="marker-text-preview" class="position-absolute top-100 start-50 translate-middle-x text-center"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-5">
+                                        <label for="marker-icon-name" class="form-label">Nom de l'icône</label>
+                                        <input type="text" class="form-control" id="marker-icon-name" placeholder="map-pin-simple-area" value="map-pin-simple-area">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="marker-icon-size" class="form-label">Taille d'icône</label>
+                                        <select id="marker-icon-size" class="form-select">
+                                            <option value="sm">Small</option>
+                                            <option value="nm" selected>Normal</option>
+                                            <option value="lg">Large</option>
+                                            <option value="xl">Extra large</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex gap-2 mt-3">
+                                    <button type="submit" class="btn btn-success" id="add-marker-button" disabled>
+                                        <i class="ph ph-map-pin-plus"></i>Ajouter le marqueur
+                                    </button>
+
+                                    <button type="button" class="btn btn-outline-secondary" id="reset-marker">
+                                        Réinitialiser
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="card shadow-sm" id="list-card">
                         <div class="card-header d-flex justify-content-between">
                             <h5 class="mb-0"><i class="ph ph-images"></i>Photographies</h5>
                             <span id="image-count" class="badge bg-primary">0</span>
                         </div>
-                        <div class="card-body p-0">
-                            <div id="images-list" class="images-list"></div>
+                        <div class="card-body d-flex flex-column p-0">
+                            <div id="images-list" class="form-scroll-view"></div>
                         </div>
                     </div>
                 </div>
