@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const BASE_URL = "http://127.0.0.1:5500/";
     const JSON_URL = BASE_URL + "assets/json/";
     const STYLE = "84ed21a1-a271-4015-a5a0-a35a3de58a24";
+    const ACCESS_TOKEN = "vrwFTDhEI2eLa0OfBBzHnJSNQeGrpQUyLm4zsl2OE5e9XSYHZiWs2ACEnHdV75L1";
     const PANNEL = document.querySelector("#map-box");
     const BOX = new bootstrap.Collapse('#map-box', { toggle: false });
 
@@ -17,7 +18,107 @@ document.addEventListener("DOMContentLoaded", (event) => {
         const response = await fetch(JSON_URL + 'markers.json');
         const json = await response.json();
 
-        return json.markers;
+        return json;
+    }
+
+    async function getImageNameByFolder(folder) {
+        const response = await fetch(`https://api.github.com/repos/rirunja/200photographie/contents/photo/${folder}`);
+        const listFile = await response.json();
+        const liste = document.getElementById("liste-fichiers");
+        liste.innerHTML = "";
+        listFile.forEach(file => {
+            if (file.type === "file") {
+                const li = document.createElement("img");
+                li.src = `photo/${folder}/${file.name}`;
+                liste.appendChild(li);
+            }
+        });
+    }
+
+    function getMarkerImages(marker, images) {
+        return images
+            .filter(image =>
+                image.markers && image.markers.includes(marker.id)
+            )
+            .sort((a, b) => Number(a.date) - Number(b.date));
+    }
+
+    function changeImage(marker, images, index) {
+        if (!images || images.length === 0) {
+            return;
+        }
+
+        const history = images[index];
+        console.log(history);
+
+        if (!history) {
+            return; // Afficher une image par défaut
+        }
+
+        const path = "photo/" + history.folder + "/" + history.filename + "." + history.type;
+
+        const cell_image = document.getElementById("building-image");
+        const cell_year = document.getElementById("building-year");
+
+        cell_image.classList.add("changing");
+
+        const new_img = new Image();
+        new_img.onload = () => {
+            cell_image.src = path;
+            cell_image.classList.remove("changing");
+        };
+
+        new_img.onerror = () => {
+            console.error("Impossible de charger l'image :", path);
+            cell_image.classList.remove("changing");
+        };
+
+        new_img.src = path;
+        cell_year.textContent = "— " + history.date;
+    }
+
+    function buildSlider(marker, images) {
+        const slider_container = document.getElementById("history-slider-container");
+        const slider = document.getElementById("history-slider");
+        const slider_years = document.getElementById("history-years");
+
+        const cell_image = document.getElementById("building-image");
+        const cell_year = document.getElementById("building-year");
+        
+        if (!images || images.length === 0) {
+            slider_container.classList.add("d-none");
+            cell_image.removeAttribute("src");
+            cell_year.textContent = "";
+            return;
+        }
+
+        if (images.length === 1) {
+            slider_container.classList.add("d-none");
+            changeImage(marker, images, 0);
+            return;
+        }
+
+        slider_container.classList.remove("d-none");
+
+        slider.min = 0;
+        slider.max = images.length - 1;
+        slider.value = images.length - 1;
+        slider.step = 1;
+        
+        slider_years.innerHTML = "";
+
+        images.forEach(history => {
+            const span = document.createElement("span");
+            span.textContent = history.date;
+            slider_years.appendChild(span);
+        });
+
+        changeImage(marker, images, slider.value);
+
+        slider.oninput = () => {
+            const index = parseInt(slider.value, 10);
+            changeImage(marker, images, index);
+        };
     }
 
     var map = L.map('map', {
@@ -29,50 +130,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
         ]
     });
 
+    /*
     const bulle = document.getElementById("message-bulle");
     const bouton = document.getElementById("bouton-bulle");
-
-    // --------------- TEST -----------------
-    async function getMapOverlayJson() {
-        const response = await fetch(JSON_URL + 'mapOverlay.json');
-        const json = await response.json();
-
-        return json.overlay[0];
-    }
-
-    const mouseCoords = document.createElement('div');
-    mouseCoords.style.position = 'fixed';
-    mouseCoords.style.bottom = '16px';
-    mouseCoords.style.left = '16px';
-    mouseCoords.style.zIndex = '2000';
-    mouseCoords.style.background = 'rgba(0,0,0,0.7)';
-    mouseCoords.style.color = '#fff';
-    mouseCoords.style.padding = '6px 10px';
-    mouseCoords.style.borderRadius = '8px';
-    mouseCoords.style.fontSize = '12px';
-    mouseCoords.style.fontFamily = 'monospace';
-    mouseCoords.textContent = 'Lat: --, Lng: --';
-    document.body.appendChild(mouseCoords);
-
-    map.on('mousemove', (event) => {
-        const { lat, lng } = event.latlng;
-        mouseCoords.textContent = `Lat: ${lat.toFixed(5)}, Lng: ${lng.toFixed(5)}`;
-    });
-
-    map.on('click', async (event) => {
-        const { lat, lng } = event.latlng;
-        const coords = `[${lat.toFixed(5)}, ${lng.toFixed(5)}]`;
-
-        try {
-            await navigator.clipboard.writeText(coords);
-            mouseCoords.textContent = `Copié: ${coords}`;
-        } catch (error) {
-            mouseCoords.textContent = `Coordonnées: ${coords}`;
-        }
-
-        BOX.hide();
-    });
-    // --------------------------------------
 
     // Cliquer n'importe où sur la page
     document.addEventListener("click", () => {
@@ -86,70 +146,25 @@ document.addEventListener("DOMContentLoaded", (event) => {
         event.stopPropagation();
 
         bulle.classList.remove("cachee");
-    });
-    
-    /** Jawg
-    // Prod
-    L.tileLayer(`https://tile.jawg.io/${STYLE}/{z}/{x}/{y}{r}.png?access-token=vrwFTDhEI2eLa0OfBBzHnJSNQeGrpQUyLm4zsl2OE5e9XSYHZiWs2ACEnHdV75L1`,
+    });*/
+
+    L.tileLayer(`https://tile.jawg.io/${STYLE}/{z}/{x}/{y}{r}.png?access-token=${ACCESS_TOKEN}`,
         {
             minZoom: 14,
             maxZoom: 18,
         }
     ).addTo(map);
-    **/
 
-    // Test
-    const currentMap = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    /*/ Test 
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         minZoom: 14,
         maxZoom: 18,
-    }).addTo(map);
-
+    }).addTo(map);*/
+   
     map.on('click', () => {
         BOX.hide();
     });
 
-    // Map overlay
-    let year = 1907; // A récupérer depuis la frise chronologique
-    let historicalOverlay = null;
-
-    async function getOverlayBoundsByYear(selectedYear = year) {
-        const overlayConfig = await getMapOverlayJson();
-        const selectedOverlay = (overlayConfig.annees || []).find(entry => String(entry.date) === String(selectedYear));
-
-        if (
-            selectedOverlay &&
-            Array.isArray(selectedOverlay.coordinates_SW) &&
-            Array.isArray(selectedOverlay.coordinates_NE) &&
-            selectedOverlay.coordinates_SW.length === 2 &&
-            selectedOverlay.coordinates_NE.length === 2
-        ) {
-            return [selectedOverlay.coordinates_SW, selectedOverlay.coordinates_NE];
-        }
-
-        const center = map.getCenter();
-        return [
-            [center.lat, center.lng],
-            [center.lat, center.lng]
-        ];
-    }
-
-    async function updateHistoricalOverlay(selectedYear = year) {
-        const historicalBounds = await getOverlayBoundsByYear(selectedYear);
-        const imagePath = `photo/map/albi ${selectedYear}.png`;
-
-        if (historicalOverlay) {
-            map.removeLayer(historicalOverlay);
-        }
-
-        historicalOverlay = L.imageOverlay(imagePath, historicalBounds, {
-            opacity: 1,
-            attribution: `Carte historique ${selectedYear}`
-        }).addTo(map);
-    }
-
-    updateHistoricalOverlay(year);
-
-    
     (async () => {
         const json = await getAlbiJson();
         L.geoJSON(json, {
@@ -163,7 +178,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
     })();
 
     (async () => {
-        const markers = await getMarkersJson();
+        const data = await getMarkersJson();
+
+        const markers = data.markers || [];
+        const images = data.images || [];
 
         markers.forEach(marker => {
             var size = 16;
@@ -212,13 +230,103 @@ document.addEventListener("DOMContentLoaded", (event) => {
                     zoom(marker);
                 }
 
+                const cell_title = document.getElementById("building-name");
+                const cell_desc = document.getElementById("building-desc");
+
+                cell_title.textContent = marker.name;
+                cell_desc.textContent = marker.description || "Aucune description disponible.";
+
+                const markerImages = getMarkerImages(marker, images);
+                
+                buildSlider(marker, markerImages);
+
                 BOX.show();
                 document.getElementById("building-name").textContent = marker.name;
                 document.getElementById("building-image").src = "photo/" + marker.folder +"/caserne laperouse 1.jpg";
-                document.getElementById("building-description").textContent = marker.description;
             });
         });
     })();
+
+    async function getMapOverlayJson() {
+        const response = await fetch(JSON_URL + 'mapOverlay.json');
+        const json = await response.json();
+
+        return json.overlay[0];
+    }
+
+    const mouseCoords = document.createElement('div');
+    mouseCoords.style.position = 'fixed';
+    mouseCoords.style.bottom = '16px';
+    mouseCoords.style.left = '16px';
+    mouseCoords.style.zIndex = '2000';
+    mouseCoords.style.background = 'rgba(0,0,0,0.7)';
+    mouseCoords.style.color = '#fff';
+    mouseCoords.style.padding = '6px 10px';
+    mouseCoords.style.borderRadius = '8px';
+    mouseCoords.style.fontSize = '12px';
+    mouseCoords.style.fontFamily = 'monospace';
+    mouseCoords.textContent = 'Lat: --, Lng: --';
+    document.body.appendChild(mouseCoords);
+
+    map.on('mousemove', (event) => {
+        const { lat, lng } = event.latlng;
+        mouseCoords.textContent = `Lat: ${lat.toFixed(5)}, Lng: ${lng.toFixed(5)}`;
+    });
+
+    map.on('click', async (event) => {
+        const { lat, lng } = event.latlng;
+        const coords = `[${lat.toFixed(5)}, ${lng.toFixed(5)}]`;
+
+        try {
+            await navigator.clipboard.writeText(coords);
+            mouseCoords.textContent = `Copié: ${coords}`;
+        } catch (error) {
+            mouseCoords.textContent = `Coordonnées: ${coords}`;
+        }
+
+        BOX.hide();
+    });
+
+    // Map overlay
+    let year = 2025; // A récupérer depuis la frise chronologique
+    let historicalOverlay = null;
+
+    async function getOverlayBoundsByYear(selectedYear = year) {
+        const overlayConfig = await getMapOverlayJson();
+        const selectedOverlay = (overlayConfig.annees || []).find(entry => String(entry.date) === String(selectedYear));
+
+        if (
+            selectedOverlay &&
+            Array.isArray(selectedOverlay.coordinates_SW) &&
+            Array.isArray(selectedOverlay.coordinates_NE) &&
+            selectedOverlay.coordinates_SW.length === 2 &&
+            selectedOverlay.coordinates_NE.length === 2
+        ) {
+            return [selectedOverlay.coordinates_SW, selectedOverlay.coordinates_NE];
+        }
+
+        const center = map.getCenter();
+        return [
+            [center.lat, center.lng],
+            [center.lat, center.lng]
+        ];
+    }
+
+    async function updateHistoricalOverlay(selectedYear = year) {
+        const historicalBounds = await getOverlayBoundsByYear(selectedYear);
+        const imagePath = `photo/map/${selectedYear}.png`;
+
+        if (historicalOverlay) {
+            map.removeLayer(historicalOverlay);
+        }
+
+        historicalOverlay = L.imageOverlay(imagePath, historicalBounds, {
+            opacity: 1,
+            attribution: `Carte historique ${selectedYear}`
+        }).addTo(map);
+    }
+
+    // updateHistoricalOverlay(year);
 
     // Jawg contributions :
     // map.attributionControl.addAttribution('<a href="https://www.jawg.io?utm_medium=map&utm_source=attribution" target="_blank">&copy; Jawg</a> - <a href="https://www.openstreetmap.org?utm_medium=map-attribution&utm_source=jawg" target="_blank">&copy; OpenStreetMap</a>&nbsp;contributors')
