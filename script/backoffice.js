@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ----- Constantes
 
-    const BASE_URL = "http://127.0.0.1:5500/";
+    const BASE_URL = "https://rirunja.github.io/200photographie/";
     const JSON_URL = BASE_URL + "assets/json/";
 
     // ----- Data
