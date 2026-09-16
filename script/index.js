@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", (event) => {
 
-    const BASE_URL = "http://127.0.0.1:5500/";
+    const BASE_URL = "https://rirunja.github.io/200photographie/";
     const JSON_URL = BASE_URL + "assets/json/";
     const STYLE = "84ed21a1-a271-4015-a5a0-a35a3de58a24";
     const ACCESS_TOKEN = "vrwFTDhEI2eLa0OfBBzHnJSNQeGrpQUyLm4zsl2OE5e9XSYHZiWs2ACEnHdV75L1";
