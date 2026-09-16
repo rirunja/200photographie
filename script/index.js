@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     const BASE_URL = "http://127.0.0.1:5500/";
     const JSON_URL = BASE_URL + "assets/json/";
-    const STYLE = "jawg-streets";
-    const ACCESS_TOKEN = "mlsjk0GBdKSb6C78EKZ2fgZ0f8AJFxuxMLxRiNqbLEwEI0Dx0U5bg7xBDbRCig2W";
+    const STYLE = "84ed21a1-a271-4015-a5a0-a35a3de58a24";
+    const ACCESS_TOKEN = "vrwFTDhEI2eLa0OfBBzHnJSNQeGrpQUyLm4zsl2OE5e9XSYHZiWs2ACEnHdV75L1";
     const PANNEL = document.querySelector("#map-box");
     const BOX = new bootstrap.Collapse('#map-box', { toggle: false });
 
@@ -129,6 +129,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         ]
     });
 
+    /*
     const bulle = document.getElementById("message-bulle");
     const bouton = document.getElementById("bouton-bulle");
 
@@ -144,22 +145,20 @@ document.addEventListener("DOMContentLoaded", (event) => {
         event.stopPropagation();
 
         bulle.classList.remove("cachee");
-    });
+    });*/
 
-    /**
     L.tileLayer(`https://tile.jawg.io/${STYLE}/{z}/{x}/{y}{r}.png?access-token=${ACCESS_TOKEN}`,
         {
             minZoom: 14,
             maxZoom: 18,
         }
     ).addTo(map);
-    **/
 
-    // Test
+    /*/ Test 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         minZoom: 14,
         maxZoom: 18,
-    }).addTo(map);
+    }).addTo(map);*/
    
     map.on('click', () => {
         BOX.hide();
@@ -326,7 +325,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }).addTo(map);
     }
 
-    updateHistoricalOverlay(year);
+    // updateHistoricalOverlay(year);
 
     // Jawg contributions :
     // map.attributionControl.addAttribution('<a href="https://www.jawg.io?utm_medium=map&utm_source=attribution" target="_blank">&copy; Jawg</a> - <a href="https://www.openstreetmap.org?utm_medium=map-attribution&utm_source=jawg" target="_blank">&copy; OpenStreetMap</a>&nbsp;contributors')
